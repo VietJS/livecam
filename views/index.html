@@ -1,0 +1,51 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+
+<!-- You might want to try something fancier: -->
+<!-- html/nunjucks docs: https://mozilla.github.io/nunjucks/ -->
+<!-- pug: https://pugjs.org/ -->
+<!-- haml: http://haml.info/ -->
+<!-- hbs(handlebars): http://handlebarsjs.com/ -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome to Glitch!</title>
+    <meta name="description" content="A cool thing made with Glitch">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.1/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    
+    <div id="app" class="container is-fluid">
+      <button v-on:click="getCameras()">Get Cameras</button>
+      <button v-on:click="refreshCameras()" style="align: right;">Refresh</button>
+
+      Total Cameras: {{ cameras.length }}
+      Show camera from <input type="text" v-model="start" number/> to <input type="text" v-model="end" number/>
+      
+      <button v-for="(camera, index) in cameras" v-on:click="start = index; end = index+1;">Cam {{ index+1 }}</button>
+      <hr/>
+      
+      <div class="columns">
+        <div v-for="camera in viewCameras(start, end)" class="column is-full-mobile intrinsic-container intrinsic-container-16x9">
+          <iframe id="myframe" :src="camera.iframe"></iframe>
+        </div>
+      </div>
+      
+    </div>
+
+    <!-- Your web-app is https, so your scripts need to be too -->
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+            crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="/client.js"></script>
+
+  </body>
+</html>
