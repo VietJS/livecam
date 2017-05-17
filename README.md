@@ -1,27 +1,34 @@
-Welcome to the Glitch BETA
+Livecam
 =========================
 
-Click `Show` in the header to see your app live. Updates to your code will instantly deploy and update live.
+![Livecam in action](/livecam.png?raw=true)
 
-Glitch is a developer playground that lets you code a real web-app without the slow setup and deployment steps.
+Livecam login to your account at ipcamlive.com, get all cameras and expose to minimal UI. You can:
 
-[About Glitch](https://glitch.com/about)
+- view multiple cameras at once
+- select which camera to view
+- view on mobile
+- use free basic account
 
+How to run
+----------
 
-Your Project
-------------
+## Use on Glitch.com
 
-On the back-end,
-- your app starts at `server.js`
-- add frameworks and packages in `package.json`
-- safely store app secrets in `.env`
+1. Import this repos
+2. Add to your `.env` file
+    ```
+    IPCAMLIVE_USER=[YOUR-USERNAME]
+    IPCAMLIVE_PASS=[YOUR-PASSWORD]
+    ```
+3. Done
 
-On the front-end,
-- edit `public/client.js`, `public/style.css` and `views/index.html`
-- drag in `assets`, like images or music, to add them to your project
+## Elsewhere
 
+1. `npm install`
+2. `IPCAMLIVE_USER=[YOUR-USERNAME] IPCAMLIVE_PASS=[YOUR-PASSWORD] node server.js`
 
-Made by Fog Creek
------------------
+Cook in Glitch.com
+------------------
 
 \ ゜o゜)ノ
